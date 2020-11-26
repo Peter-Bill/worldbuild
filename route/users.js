@@ -3,6 +3,8 @@ const router = express.Router();
 
 const mongoose = require('mongoose');
 const User = require("../models/user.js");
+const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 //login handle
 
@@ -58,14 +60,42 @@ router.post('/register', (req,res)=>{
             email : email,
             password : password
         });
-    }
+
+        //Hash password
+        bcrypt.genSalt(10,(err,salt)=>
+        bcrypt.hash(newUser.password,salt,
+            (err,hash)=> {
+                if(err) throw err;
+                //save pass to hash
+                newUser.password = hash;
+                //save user
+
+                newUser.save()
+                .then((value)=> {
+                    console.log(value)
+                    req.flash('success_msg','Successfully registered.')
+                res.redirect('/users/login');
+                })
+                .catch(value=> console.log(value));
+            }))
+    } //END ELSE
 })
-router.post('/login', (req,res)=>{
+router.post('/login', (req,res,next)=>{
+
+    passport.authenticate('local',{
+        successRedirect: '/dashboard',
+        failureRedirect : '/users/login',
+        failureFlash : true,
+    })(req,res,next);
 })
 
 //logout
 
 router.get('/logout', (req,res)=>{
+
+    req.logout();
+    req.flash('success_msg', 'Now logged out.');
+    res.redirect('/users/login');
 })
 
 module.exports = router;
