@@ -46,6 +46,8 @@ app.use((req,res,next)=> {
 next();
 })
 
+app.use(('/public'), express.static('public'));
+
 //Routes
 
 app.use('/',require('./route/index'));
