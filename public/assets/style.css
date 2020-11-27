@@ -1,0 +1,10 @@
+#main-div {
+
+    position: relative;
+    background-image: url('img/pexels-walid-ahmad-847402.jpg');
+
+    background-size: cover;
+    height: 1080p;
+    width:100%;
+
+}
