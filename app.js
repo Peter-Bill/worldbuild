@@ -10,10 +10,10 @@ const passport = require('passport');
 
 require("./config/passport") (passport)
 
-//Mongoose
+//Mongoose connect
 
 mongoose.connect('mongodb://localhost/test',{useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => console.log('connected,,'))
+.then(() => console.log('MONGODB connected'))
 .catch((err)=> console.log(err));
 
 //EJS Sys

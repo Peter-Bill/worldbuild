@@ -18,6 +18,11 @@ router.get('/register', (req,res)=> {
     res.render('register');
 })
 
+router.get('/dashboard', (req,res)=> {
+
+    res.render('dashboard');
+})
+
 //register handle
 
 router.post('/register', (req,res)=>{
@@ -83,6 +88,15 @@ router.post('/register', (req,res)=>{
 router.post('/login', (req,res,next)=>{
 
     passport.authenticate('local',{
+        successRedirect: '/dashboard',
+        failureRedirect : '/users/login',
+        failureFlash : true,
+    })(req,res,next);
+})
+
+router.post('/dashboard', (req,res,next)=>{
+
+    passport.authenticate('local', {
         successRedirect: '/dashboard',
         failureRedirect : '/users/login',
         failureFlash : true,

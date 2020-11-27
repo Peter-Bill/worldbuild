@@ -1,3 +1,7 @@
+<head><%- include('partials/head') %></head>
+<header><%- include('partials/header') %></header>
+
+<div class="jumbotron text-center">
 <h1>Register</h1>
 <%- include ('./partials/messages') %>
 <form action="/users/register" method="POST">
@@ -43,3 +47,7 @@
   </button>
 </form>
 <p >Have An Account? <a href="/users/login">Login</a></p>
+
+</div>
+
+<footer><%- include('partials/footer') %></footer>

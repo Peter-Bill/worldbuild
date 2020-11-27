@@ -17,6 +17,8 @@ router.get('/register', (req,res)=>{
     res.render('register');   
 })
 
+
+//dashboard page
 router.get('/dashboard', ensureAuthenticated, (req,res)=>{
 
     res.render('dashboard',{
@@ -24,5 +26,16 @@ router.get('/dashboard', ensureAuthenticated, (req,res)=>{
         user: req.user
     });
 })
+
+//solar system page
+
+router.get('/solar_system', ensureAuthenticated, (req,res)=>{
+
+    res.render('solar_system', {
+
+        user: req.user
+    })
+})
+
 
 module.exports = router;
