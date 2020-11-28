@@ -6,7 +6,7 @@ const Planet = require('../models/planet.js');
 
 router.get('/solar_system', (req,res)=>{
 
-    res.render('/solar_system')
+    res.render('solar_system')
 })
 
 //Planet Creation
@@ -23,6 +23,8 @@ router.post('/solar_system', (req,res)=> {
             owner = 'Shade'
 
         });
+
+        newPlanet.save();
     }
 })
 

@@ -33,7 +33,7 @@ router.get('/solar_system', ensureAuthenticated, (req,res)=>{
 
     res.render('solar_system', {
 
-        user: req.user
+        planet: req.planet
     })
 })
 

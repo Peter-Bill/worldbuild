@@ -52,5 +52,6 @@ app.use(('/public'), express.static('public'));
 
 app.use('/',require('./route/index'));
 app.use('/users',require('./route/users'));
+app.use('/planets', require('./routes/planets'));
 
 app.listen(3000);
