@@ -3,7 +3,7 @@ const PlanetSchema = new mongoose.Schema({
 
     position :{
 
-        type : BigInt,
+        type : Number,
         required : true
     },
     planet_type :{

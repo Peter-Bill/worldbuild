@@ -17,10 +17,11 @@ router.post('/solar_system', (req,res)=> {
 
         const newPlanet = new Planet ({
 
-            position = i,
-            planet_type = 'Random',
-            slots = 10,
-            owner = 'Shade'
+            position: 0,
+            planet_type: 'Random',
+            slots: 10,
+            owner: 'Shade',
+            required: true
 
         });
 
